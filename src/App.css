@@ -1,3 +1,104 @@
+@font-face {
+  font-family: "KyoboHand";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/KyoboHand.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "KyoboHand";
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* (최소) 650px 이상일 때 */
+@media screen and (min-width: 650px) {
+  .App {
+    width: 640px;
+  }
+}
+
+/* (최대) 650px 이하일 때*/
+@media screen and (max-width: 650px) {
+  .App {
+    width: 90vw; /* 브라우저 창 기준 90%*/
+  }
+}
+
+#root {
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
 .App {
-  padding: 20px;
+  min-height: 100vh; /* 최소 높이 100% */
+  padding: 0 20px;
+}
+
+/* Mybtn */
+
+.Mybtn {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+
+  font-size: 18px;
+  font-family: "KyoboHand";
+
+  /* 버튼 안의 글자가 잘리지 않고 2줄이 되게 함 */
+  white-space: nowrap;
+}
+
+.Mybtn_default {
+  background-color: #ececec;
+  color: black;
+}
+
+.Mybtn_positive {
+  background-color: #64c964;
+  color: white;
+}
+
+.Mybtn_negative {
+  background-color: #fd565f;
+  color: white;
+}
+
+/* Myheader */
+
+header {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+header > div {
+  display: flex;
+}
+
+header button {
+  font-family: "KyoboHand";
+}
+
+header .head_text {
+  width: 50%;
+  font-size: 25px;
+  justify-content: center;
+}
+
+header .head_btn_left {
+  width: 25%;
+  justify-content: start;
+}
+
+header .head_btn_right {
+  width: 25%;
+  justify-content: end;
 }

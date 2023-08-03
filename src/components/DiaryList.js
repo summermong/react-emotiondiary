@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const sortOptionList = [
-  { value: 'latest', name: '최신순' },
+  { value: 'lastest', name: '최신순' },
   { value: 'oldest', name: '오래된 순' },
 ];
 

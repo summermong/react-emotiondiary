@@ -1,13 +1,11 @@
-import React from "react";
+import React from 'react';
 
 const Mybtn = ({ text, type, onClick }) => {
-  const btnType = ["positive", "negative"].includes(type) ? type : "default";
-
-  console.log(type);
+  const btnType = ['positive', 'negative'].includes(type) ? type : 'default';
 
   return (
     <button
-      className={["Mybtn", `Mybtn_${btnType}`].join(" ")}
+      className={['Mybtn', `Mybtn_${btnType}`].join(' ')}
       onClick={onClick}
     >
       {text}
@@ -16,7 +14,7 @@ const Mybtn = ({ text, type, onClick }) => {
 };
 
 Mybtn.defaultProps = {
-  type: "default",
+  type: 'default',
 };
 
 export default Mybtn;

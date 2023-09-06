@@ -2,8 +2,10 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { DiaryStateContext } from '../App';
 import Myheader from '../components/Myheader';
-import { getStringDate } from '../util/date';
 import Mybtn from '../components/Mybtn';
+
+import { getStringDate } from '../util/date';
+import { emotionList } from '../util/emotion';
 
 const Diary = () => {
   // React에서 제공하는 Hooks는 아님
@@ -35,6 +37,11 @@ const Diary = () => {
   if (!data) {
     return <div className="DiaryPage">Loading...</div>;
   } else {
+    const curEmotionData = emotionList.find(
+      (it) => parseInt(it.emotion_id) === parseInt(data.emotion)
+    );
+    console.log(curEmotionData);
+
     return (
       <div className="DiaryPage">
         <Myheader
@@ -49,6 +56,28 @@ const Diary = () => {
             />
           }
         />
+        <article>
+          <section>
+            <h4>오늘의 감정</h4>
+            <div
+              className={[
+                'diary_img_wrapper',
+                `diary_img_wrapper_${data.emotion}`,
+              ].join(' ')}
+            >
+              <img src={curEmotionData.emotion_img} alt="감정" />
+              <div className="emotion_descript">
+                {curEmotionData.emotion_descript}
+              </div>
+            </div>
+          </section>
+          <section>
+            <h4>오늘의 일기</h4>
+            <div className="diary_content_wrapper">
+              <p>{data.content}</p>
+            </div>
+          </section>
+        </article>
       </div>
     );
   }
